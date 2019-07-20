@@ -1,0 +1,45 @@
+{
+  "name": "fenix-middleware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node index.js",
+    "start": "node index.js",
+    "dev:inspect": "nodemon --inspect index.js",
+    "dev:debug": "DEBUG=express:*,app:* npm run dev",
+    "debug": "DEBUG=express:*,app:* npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilliamDeLaEspriella/fenix-middleware.git"
+  },
+  "author": "Universidad de cartagena",
+  "license": "MIT",
+  "devDependencies": {
+    "claudia": "^5.4.2"
+  },
+  "dependencies": {
+    "@babel/node": "^7.2.2",
+    "consign": "^0.1.6",
+    "debug": "^4.1.1",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "helmet": "^3.16.0",
+    "install": "^0.12.2",
+    "nodemon": "^1.18.9",
+    "npm": "^6.9.0",
+    "or": "^0.2.0",
+    "pg": "^7.9.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.5.0"
+  },
+  "bugs": {
+    "url": "https://github.com/WilliamDeLaEspriella/fenix-middleware/issues"
+  },
+  "homepage": "https://github.com/WilliamDeLaEspriella/fenix-middleware#readme"
+}
