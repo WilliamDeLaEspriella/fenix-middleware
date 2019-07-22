@@ -14,6 +14,7 @@ consign({ cwd: __dirname })
     .include('routes')
     .into(app);
 mongoose.Promise = global.Promise
+mongoose.set('useCreateIndex', true)
 mongoose.connect(app.config.db, { useNewUrlParser: true })
     .then(() => {
         console.log('mongoDB is connected...')

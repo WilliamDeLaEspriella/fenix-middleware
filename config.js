@@ -4,6 +4,7 @@ module.exports = {
     host: process.env.HOST || 'localhost',
     connectionString: process.env.connectionString,
     db: process.env.MONGODB || 'mongodb://localhost:27017/fenix-milddleware',
+    secret: process.env.SECRET || 'sdf4sdf5654s6df546sd8f7wrf5wf',
     port: process.env.PORT || 3000,
     ssl: process.env.SSL
 }
