@@ -1,9 +1,7 @@
 'use strict'
-const moment = require('moment');
 const app = require('./app')
-const db = require('./database/db')
+const mongoose = require('mongoose')
 const consign = require('consign');
-moment.suppressDeprecationWarnings = true;
 const debug = require('debug')('app:server')
 const {
     logErrors,
@@ -15,15 +13,19 @@ consign({ cwd: __dirname })
     .include('config.js')
     .include('routes')
     .into(app);
-
-db.sequelize.sync().done(() => {
-    debug('Connected succesfully to posgrsql');
-    if (app.config.NODE_ENV != "producion") {
+mongoose.Promise = global.Promise
+mongoose.connect(app.config.db, { useNewUrlParser: true })
+    .then(() => {
+        console.log('mongoDB is connected...')
         app.listen(app.config.port, () => {
-            debug('Server on port', app.config.port);
-        });
-    }
-});
+
+            console.log(`API REST corriendo en http//localhost:${app.config.port}`)
+        })
+    })
+    .catch((err) => {
+        throw err
+    })
+
 
 app.use(logErrors);
 app.use(clientErrorHandler);

@@ -3,10 +3,7 @@ module.exports = {
     NODE_ENV: process.env.NODE_ENV || 'development',
     host: process.env.HOST || 'localhost',
     connectionString: process.env.connectionString,
-    user_database: process.env.USER_DATABASE || 'haskhell',
-    password_database: process.env.PASSWORD_DATABASE || 'haskhell8888',
-    database: process.env.DATABASE || 'fenix_middleware_development',
-    port_database: process.env.PORT_DATABASE || '5432',
+    db: process.env.MONGODB || 'mongodb://localhost:27017/fenix-milddleware',
     port: process.env.PORT || 3000,
     ssl: process.env.SSL
 }
