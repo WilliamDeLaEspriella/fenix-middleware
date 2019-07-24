@@ -49,7 +49,7 @@ PlatformSchema.methods.generateJWT = function() {
 
 PlatformSchema.methods.toAuthJSON = function () {
     return {
-        username: this.full_name,
+        full_name: this.full_name,
         email: this.email,
         token: this.generateJWT(),
         compania: this.compania,
