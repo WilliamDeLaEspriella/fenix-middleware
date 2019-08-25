@@ -1,17 +1,27 @@
 const redis = require('redis');
+const config = require('../../config')
+let redisInstance = null;
 
-module.exports = app => {
+const setupRedis = async () => {
+    let clientData = {
+        host: config.host_redis,
+        port: config.port_redis
+    }
+    if (!redisInstance) {
+        redisInstance = redis.createClient(clientData);
+        console.log('new instance to redis!');
+    }
 
-    const redisClient = redis.createClient(
-        {
-            port: app.config.port_redis,
-            host: app.config.host_redis
-        }
-    );
-
-    //creamos un cliente
-    redisClient.on('connect', function () {
-        console.log('Conectado a Redis Server');
+    redisInstance.on('connect', () => {
+        console.log(`Connected to redis! `);
     });
 
+    redisInstance.on('error', err => {
+        console.error(`[fatal error]: ${err.message}`);
+        process.exit(1);
+    });
+
+    return redisInstance;
 };
+
+module.exports = { setupRedis }
