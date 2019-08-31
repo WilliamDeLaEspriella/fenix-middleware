@@ -31,7 +31,6 @@ PlatformSchema.pre('save', function (next) {
 // };
 
 PlatformSchema.methods.validPassword = function (password) {
-    console.log(this.salt)
     var password = crypto.pbkdf2Sync(password, this.salt, 10000, 512, 'sha512').toString('hex');
     return this.password === password;
 };

@@ -2,7 +2,6 @@
 const app = require('./app')
 const {setupRedis} = require('./utils/db/redis')
 const consign = require('consign');
-// const fetch = require("node-fetch");
 const debug = require('debug')('app:server')
 const {
     logErrors,
@@ -12,7 +11,6 @@ const {
 setupRedis()
 consign({ cwd: __dirname })
     .include('config.js')
-    // .include('utils/db/redis.js')
     .include('utils/db/mongo.js')
     .include('routes')
     .into(app);
