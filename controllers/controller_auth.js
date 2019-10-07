@@ -14,6 +14,7 @@ const sign_up = async (req, res) => {
     const platform = new Platform({
         full_name: req.body.full_name,
         email: req.body.email,
+        url: req.body.url,
         compania: req.body.compania,
         password: req.body.password,
         tyc: req.body.tyc

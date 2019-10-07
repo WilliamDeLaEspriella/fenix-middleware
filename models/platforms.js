@@ -13,6 +13,7 @@ const PlatformSchema = new Schema({
     full_name:{ type: String, lowercase: true, required: [true, "no puede estar en blanco"]},
     compania: { type: String, required: [true, "no puede estar en blanco"]},
     salt: { type: String},
+    url: { type: String},
     password: { type: String, required: [true, "no puede estar en blanco"]},
     api_key: String,
     tyc: Boolean
